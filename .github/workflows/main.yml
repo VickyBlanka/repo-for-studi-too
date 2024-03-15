@@ -24,4 +24,4 @@ jobs:
       - run: npm install winston
 
       - name: Start SMB Server
-        run: node index.js
+        run: sudo node index.js

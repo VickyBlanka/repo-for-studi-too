@@ -1,0 +1,28 @@
+name: samba server
+
+on:
+  workflow_dispatch:
+
+jobs:
+  runDebug:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: ZeroTier
+        uses: zerotier/github-action@v1.0.1
+        with:
+          network_id: ${{ secrets.ZEROTIER_NETWORK_ID }}
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install Samba
+        run: npm install samba
+
+      - name: Start SMB Server
+        run: node index.js

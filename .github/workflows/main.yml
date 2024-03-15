@@ -21,8 +21,5 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install Samba
-        run: npm install samba
-
       - name: Start SMB Server
         run: node index.js
